@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.User;
@@ -34,5 +35,16 @@ public class UserController {
     public String saveUser(@ModelAttribute("User") User user) {
     	userService.saveUser(user);
     	return "redirect:/user";
+    }
+    
+    @GetMapping("/edit-user/{id}")
+    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+
+        // get user from the service
+        User user = userService.getUserById(id);
+
+        // set user as a model attribute to pre-populate the form
+        model.addAttribute("user", user);
+        return "user/update-user";
     }
 }
