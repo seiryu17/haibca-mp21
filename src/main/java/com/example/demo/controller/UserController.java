@@ -47,4 +47,12 @@ public class UserController {
         model.addAttribute("user", user);
         return "user/update-user";
     }
+    
+    @GetMapping("/delete-user/{id}")
+    public String deleteUser(@PathVariable(value = "id") long id) {
+
+        // call delete employee method 
+        this.userService.deleteUserById(id);
+        return "redirect:/user";
+    }
 }
