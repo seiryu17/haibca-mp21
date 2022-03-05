@@ -38,7 +38,7 @@ public class UserController {
     }
     
     @GetMapping("/edit-user/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+    public String editUser(@PathVariable(value = "id") long id, Model model) {
 
         // get user from the service
         User user = userService.getUserById(id);
