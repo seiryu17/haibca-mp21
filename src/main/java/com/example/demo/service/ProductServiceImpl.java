@@ -25,4 +25,21 @@ public class ProductServiceImpl implements ProductService {
 		this.productRepository.save(product);
 	}
 
+	@Override
+	public Product getProductById(long id) {
+		Optional<Product> optional = productRepository.findById(id);
+		Product product = null;
+		if (optional.isPresent()) {
+			product = optional.get();
+		} else {
+			throw new RuntimeException("Product not found for id :: " + id);
+		}
+		return product;
+	}
+
+	@Override
+	public void deleteProductById(long id) {
+		this.productRepository.deleteById(id);
+	}
+
 }
