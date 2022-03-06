@@ -6,7 +6,8 @@ import com.example.demo.model.Product;
 
 public interface ProductService {
 	List<Product> getAllProducts();
-	// void saveUser(User user);
+
+	void saveProduct(Product product);
 	// User getUserById(long id);
 	// void deleteUserById(long id);
 }
