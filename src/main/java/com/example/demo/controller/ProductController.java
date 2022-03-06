@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Product;
+import com.example.demo.service.ProductCategoryService;
 import com.example.demo.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ProductCategoryService productCategoryService;
 
     // display list of employees
     @GetMapping("/product")
@@ -28,6 +31,7 @@ public class ProductController {
     public String newProduct(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
+        model.addAttribute("listCategory", productCategoryService.getAllProductCategory());
         return "product/new-product";
     }
 
@@ -45,6 +49,7 @@ public class ProductController {
 
         // set product as a model attribute to pre-populate the form
         model.addAttribute("product", product);
+        model.addAttribute("listCategory", productCategoryService.getAllProductCategory());
         return "product/update-product";
     }
 

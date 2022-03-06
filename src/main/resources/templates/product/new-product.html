@@ -14,12 +14,9 @@
         <form action="#" th:action="@{/saveProduct}" th:object="${product}" method="POST">
             <input type="text" th:field="*{productName}" required placeholder="Product Name" class="form-control mb-4 col-4">
 
-            <select th:field="*{idProductCategory}" required placeholder="Product Category" class="form-control mb-4 col-4">
-                <option value="" hidden>Select a language</option>
-                <option value="1">Volvo</option>
-                <option value="2">Saab</option>
-                <option value="3">Opel</option>
-                <option value="4">Audi</option>
+            <select th:field="*{category}" required placeholder="Product Category" class="form-control mb-4 col-4">
+                <option value="" hidden>Select a category</option>
+                <option th:each="category : ${listCategory}" th:value="${category.Id}" th:text="${category.categoryName}"></option>
               </select>
 
             <input type="text" th:field="*{productNo}" required placeholder="Product No" class="form-control mb-4 col-4">
