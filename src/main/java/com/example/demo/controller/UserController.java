@@ -20,6 +20,7 @@ public class UserController {
 	// display list of employees
     @GetMapping("/user")
     public String viewUserPage(Model model) {
+        model.addAttribute("title", "User Page");
     	model.addAttribute("listUsers", userService.getAllUsers());
         return "user/index";
     }
