@@ -11,13 +11,18 @@ import com.example.demo.repository.ProductRepository;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-	
+
 	@Autowired
 	private ProductRepository productRepository;
-	
+
 	@Override
 	public List<Product> getAllProducts() {
 		return productRepository.findAll();
 	}
-	
+
+	@Override
+	public void saveProduct(Product product) {
+		this.productRepository.save(product);
+	}
+
 }
