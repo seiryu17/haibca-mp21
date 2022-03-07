@@ -15,8 +15,9 @@
                         <h1 class="h3 mb-0 text-gray-800" th:text="${msg}"></h1>
                     </div>
 
-                    <div class="text-right mb-4">
-                        <a th:href="@{/new-user}" id="addUser" class="btn btn-primary center" title="Add New User">Add New User</a>
+                    <div class="d-flex justify-content-between mb-4">
+                        <div class="page-title">User List Page</div>
+                        <a th:href="@{/new-user}" id="addUser" class="btn btn-primary center align-self-start" title="Add New User">Add New User</a>
                     </div>
 
                     <table id="myTable" class="display" style="width:100%">

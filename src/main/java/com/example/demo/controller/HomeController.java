@@ -9,7 +9,14 @@ public class HomeController {
 
     // display list of employees
     @GetMapping("/")
-    public String viewHomePage() {
+    public String viewIndex() {
         return "index";
     }
+
+    // display list of employees
+    @GetMapping("/home")
+    public String viewHomePage() {
+        return "home/index";
+    }
+
 }
