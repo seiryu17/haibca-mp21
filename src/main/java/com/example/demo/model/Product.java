@@ -1,10 +1,13 @@
 package com.example.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,8 +23,9 @@ public class Product {
     @Column(name = "productNo")
 	private String productNo;
 
-    @Column(name = "idProductCategory")
-	private String idProductCategory;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idProductCategory", referencedColumnName="Id")
+    private ProductCategory category;
 
     @Column(name = "productStock")
 	private String productStock;
@@ -50,13 +54,13 @@ public class Product {
         this.productNo = productNo;
     }
 
-    public String getIdProductCategory() {
-        return idProductCategory;
-    }
+    public ProductCategory getCategory() {
+		return category;
+	}
 
-    public void setIdProductCategory(String idProductCategory) {
-        this.idProductCategory = idProductCategory;
-    }
+    public void setCategory(ProductCategory category) {
+		this.category = category;
+	}
 
     public String getProductStock() {
         return productStock;
@@ -66,7 +70,4 @@ public class Product {
         this.productStock = productStock;
     }
 
-    
-
-    
 }
