@@ -33,6 +33,9 @@ public class Product {
     @Column(name = "productPrice")
     private String productPrice;
 
+    @Column(name = "productDisc")
+    private String productDisc;
+
     public long getId() {
         return id;
     }
@@ -79,6 +82,14 @@ public class Product {
 
     public void setProductPrice(String productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public String getProductDisc() {
+        return productDisc;
+    }
+
+    public void setProductDisc(String productDisc) {
+        this.productDisc = productDisc;
     }
 
 }

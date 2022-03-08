@@ -70,6 +70,16 @@
           class="form-control mb-4 col-4"
         />
 
+        <textarea
+          rows="4"
+          cols="50"
+          name="description"
+          th:field="*{productDisc}"
+          required
+          placeholder="Product Description"
+          class="form-control mb-4 col-4"
+        ></textarea>
+
         <button type="submit" class="btn btn-info col-2">Update Product</button>
       </form>
 
