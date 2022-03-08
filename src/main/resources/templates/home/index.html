@@ -7,9 +7,13 @@
   <div th:replace="fragments/topbar :: topbar"></div>
   <div class="wrapper">
     <div th:replace="fragments/navbar :: navbar"></div>
-        Home
+    <div sec:authorize="isAuthenticated()">
+      <h1>
+        Hai <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+      </h1>
     </div>
-    <div lang="en" th:replace="fragments/footer :: footer"> </div>
+  </div>
+  <div lang="en" th:replace="fragments/footer :: footer"> </div>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ public class UserController {
     @GetMapping("/user")
     public String viewUserPage(Model model) {
     	model.addAttribute("listUsers", userService.getAllUsers());
+        model.addAttribute("title","User Page");
         return "user/index";
     }
     
@@ -33,6 +35,9 @@ public class UserController {
     
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("User") User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword =  passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
     	userService.saveUser(user);
     	return "redirect:/user";
     }

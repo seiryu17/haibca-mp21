@@ -24,6 +24,7 @@ public class ProductController {
     @GetMapping("/product")
     public String viewProductPage(Model model) {
         model.addAttribute("listProducts", productService.getAllProducts());
+        model.addAttribute("title","Product Page");
         return "product/index";
     }
 
