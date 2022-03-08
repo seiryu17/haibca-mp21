@@ -14,15 +14,19 @@ public class MarketController {
     }
 
     // display list of employees
-    @GetMapping("/detail-product/{id}")
+    @GetMapping("/product-list")
+    public String viewProductList() {
+        return "market/product-list";
+    }
 
+    // display list of employees
+    @GetMapping("/detail-product/{id}")
     public String viewDetailProduct(@PathVariable(value = "id") long id) {
         return "market/detail-product";
     }
 
     // display list of employees
     @GetMapping("/checkout")
-
     public String viewCheckout() {
         return "market/checkout";
     }

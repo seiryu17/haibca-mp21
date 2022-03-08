@@ -1197,6 +1197,11 @@ ol {
   width: 581px;
 }
 
+.product-item.product-list {
+  margin-bottom: 26px;
+  width: 300px;
+}
+
 .product-item.detail {
   margin-bottom: 26px;
   width: unset;
@@ -4402,6 +4407,7 @@ ol {
 .featured-items {
   display: flex !important;
   gap: 50px;
+  flex-wrap: wrap;
 }
 
 .partner-logo .container {
@@ -4411,4 +4417,18 @@ ol {
 
 .footer-left .footer-logo img {
   height: 60px !important;
+}
+
+.featured-items-title {
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.featured-items-title-product-list {
+  display: flex;
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  justify-content: center;
 }
