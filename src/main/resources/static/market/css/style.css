@@ -1197,6 +1197,11 @@ ol {
   width: 581px;
 }
 
+.product-item.detail {
+  margin-bottom: 26px;
+  width: unset;
+}
+
 .product-item:hover .pi-pic .icon {
   top: 15px;
   opacity: 1;
