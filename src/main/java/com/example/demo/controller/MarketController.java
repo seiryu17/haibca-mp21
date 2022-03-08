@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class MarketController {
 
     // display list of employees
-    @GetMapping("/market")
+    @GetMapping("/")
     public String market() {
         return "market/index";
     }
@@ -18,6 +18,13 @@ public class MarketController {
 
     public String viewDetailProduct(@PathVariable(value = "id") long id) {
         return "market/detail-product";
+    }
+
+    // display list of employees
+    @GetMapping("/checkout")
+
+    public String viewCheckout() {
+        return "market/checkout";
     }
 
 }
