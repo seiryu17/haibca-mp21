@@ -1194,7 +1194,7 @@ ol {
 
 .product-item {
   margin-bottom: 26px;
-  width: 581px;
+  width: 300px;
 }
 
 .product-item.product-list {
@@ -4408,6 +4408,7 @@ ol {
   display: flex !important;
   gap: 50px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .partner-logo .container {

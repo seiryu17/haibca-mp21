@@ -11,24 +11,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "product")
+@Table(name = "product")
 public class Product {
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @Column(name = "productName")
-	private String productName;
- 
+    private String productName;
+
     @Column(name = "productNo")
-	private String productNo;
+    private String productNo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idProductCategory", referencedColumnName="Id")
+    @JoinColumn(name = "idProductCategory", referencedColumnName = "Id")
     private ProductCategory category;
 
     @Column(name = "productStock")
-	private String productStock;
+    private String productStock;
+
+    @Column(name = "productPrice")
+    private String productPrice;
 
     public long getId() {
         return id;
@@ -55,12 +58,12 @@ public class Product {
     }
 
     public ProductCategory getCategory() {
-		return category;
-	}
+        return category;
+    }
 
     public void setCategory(ProductCategory category) {
-		this.category = category;
-	}
+        this.category = category;
+    }
 
     public String getProductStock() {
         return productStock;
@@ -68,6 +71,14 @@ public class Product {
 
     public void setProductStock(String productStock) {
         this.productStock = productStock;
+    }
+
+    public String getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
     }
 
 }
