@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head lang="en" th:replace="/market/fragments/header :: header"> </head>
+
+  <body>
+    <div lang="en" th:replace="/market/fragments/topbar :: topbar"></div>
+    <section class="women-banner spad">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 mt-5">
+            <div class="featured-items-title-product-list">Product List</div>
+            <div class="featured-items">
+              <div th:each="product : ${listProducts}">
+                <div class="product-item product-list">
+                  <div class="pi-pic">
+                    <img src="/market/img/products/women-2.jpg" alt />
+                    <ul>
+                      <li class="w-icon active">
+                        <a href="#">
+                          <i class="icon_bag_alt"></i>
+                        </a>
+                      </li>
+                      <li class="quick-view">
+                        <a th:href="@{/detail-product/{id}(id=${product.id})}"
+                          >+ Quick View</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="pi-text">
+                    <div class="catagory-name">
+                      [[${product.category.categoryName}]]
+                    </div>
+                    <a href="#">
+                      <h5>[[${product.productName}]]</h5>
+                    </a>
+                    <div class="product-price">
+                      $ [[${product.productPrice}]]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer lang="en" th:replace="/market/fragments/footer :: footer"></footer>
+  </body>
+</html>
