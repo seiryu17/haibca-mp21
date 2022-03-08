@@ -29,3 +29,22 @@
   font-size: 36px;
   font-weight: 500;
 }
+
+.weather {
+  color: white;
+  font-size: 12px;
+  display: flex;
+  margin: 10px 0;
+  gap: 10px;
+  align-items: center;
+}
+
+.weather .location {
+  align-self: center;
+}
+
+.weather .weatherStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
