@@ -16,7 +16,10 @@
                     <img src="/market/img/products/women-2.jpg" alt />
                     <ul>
                       <li class="w-icon active">
-                        <a href="#">
+                        <a
+                          class="cart-icon-quick"
+                          th:attr="onclick=|addToCart('${product.id}','${product.productPrice}','${product.productName}')|"
+                        >
                           <i class="icon_bag_alt"></i>
                         </a>
                       </li>
