@@ -55,7 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/new-product",
                 "/edit-product/**",
                 "/saveProduct",
-                "/delete-product/**").authenticated()
+                "/delete-product/**",
+                "/view-product/**").authenticated()
             .anyRequest().permitAll()
             .and()
             .formLogin()
