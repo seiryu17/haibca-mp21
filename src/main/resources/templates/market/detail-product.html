@@ -50,7 +50,13 @@
                       <h4>$ [[${product.productPrice}]]</h4>
                     </div>
                     <div class="quantity">
-                      <button class="primary-btn">Add To Cart</button>
+                      <button
+                        class="primary-btn"
+                        th:attr="onclick=|addToCart('${product.id}','${product.productPrice}','${product.productName}')|"
+                        type="button"
+                      >
+                        Add To Cart
+                      </button>
                     </div>
                   </div>
                 </div>

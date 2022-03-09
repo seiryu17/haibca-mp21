@@ -4424,6 +4424,8 @@ ol {
   font-size: 25px;
   margin-bottom: 15px;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
 }
 
 .featured-items-title-product-list {
@@ -4432,4 +4434,8 @@ ol {
   margin-bottom: 15px;
   font-weight: 600;
   justify-content: center;
+}
+
+.cart-icon-quick {
+  cursor: pointer;
 }
