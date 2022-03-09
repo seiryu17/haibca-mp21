@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "product")
@@ -23,8 +23,7 @@ public class Product {
     @Column(name = "productNo")
     private String productNo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idProductCategory", referencedColumnName = "Id")
+    @ManyToOne
     private ProductCategory category;
 
     @Column(name = "productStock")
@@ -35,6 +34,9 @@ public class Product {
 
     @Column(name = "productDisc")
     private String productDisc;
+
+    @Column(name = "productImg")
+    private String productImg;
 
     public long getId() {
         return id;
@@ -90,6 +92,20 @@ public class Product {
 
     public void setProductDisc(String productDisc) {
         this.productDisc = productDisc;
+    }
+
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
+    }
+
+    @Transient
+    public String getProductImgPath(){
+        if(productImg == null) return null;
+        return "/product-image/" + id + "/" + productImg;
     }
 
 }
