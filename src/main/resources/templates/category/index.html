@@ -59,13 +59,13 @@
                   >Edit</a
                 >
                 <a
-                  th:href="@{/category/delete-category/{id}(id=${category.id})}"
+                  th:attr="onclick=|confirmationDelete('${category.id}')|"
                   class="btn btn-danger"
                   type="button"
                   data-toggle="tooltip"
                   data-placement="top"
                   title="Delete"
-                  ><i class="fa fa-trash"></i
+                  ><i class="fa fa-trash" style="color: white"></i
                 ></a>
               </td>
             </tr>
@@ -83,4 +83,13 @@
     </div>
     <div lang="en" th:replace="fragments/footer :: footer"></div>
   </body>
+  <script>
+    function confirmationDelete(id) {
+      let text =
+        "Deleting category will delete all the product with this category !!! Do you still want to continue ?";
+      if (confirm(text) == true) {
+        location.replace(`/category/delete-category/${id}`);
+      }
+    }
+  </script>
 </html>
