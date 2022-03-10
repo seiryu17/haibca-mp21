@@ -3,7 +3,7 @@ const show = () => {
     let tab = JSON.parse(localStorage.getItem("itemCart")).map((x) => {
       return `<tr>
           <td class="si-pic">
-            <img src="/market/img/select-product-1.jpg" alt />
+          <img src="${x.img}" />
           </td>
           <td class="si-text">
             <div class="product-selected">
@@ -36,8 +36,8 @@ const showCheckout = () => {
     let tab = JSON.parse(localStorage.getItem("itemCart")).map((x) => {
       return `
         <tr>
-          <td class="cart-pic first-row">
-            <img src="/market/img/cart-page/product-1.jpg" />
+          <td class="si-pic cart-pic first-row">
+            <img src="${x.img}" />
           </td>
           <td class="cart-title first-row text-center">
             <h5>${x.name}</h5>
@@ -76,21 +76,7 @@ const removeItem = (id) => {
   show();
 };
 
-// removeItem.onclick = function () {
-//   console.log("asd");
-// };
-
-// $(document).ready(function () {
-//   $("#removeItem").click(function () {
-//     if (JSON.parse(localStorage.getItem("itemCart"))) {
-//       let data = JSON.parse(localStorage.getItem("itemCart")).filter((x) => x.id !== $(this).attr("data-id"));
-
-//     }
-//     console.log($(this).attr("data-id"));
-//   });
-// });
-
-const addToCart = (id, price, name) => {
+const addToCart = (id, price, name, img) => {
   let temp = [];
   let x = JSON.parse(localStorage.getItem("itemCart"));
   let obj;
@@ -112,6 +98,7 @@ const addToCart = (id, price, name) => {
       name: name,
       price: parseFloat(price),
       qty: 1,
+      img: img,
     });
   }
   localStorage.setItem("itemCart", JSON.stringify(temp));

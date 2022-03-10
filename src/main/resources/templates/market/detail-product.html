@@ -32,11 +32,7 @@
               <div class="row">
                 <div class="col-lg-6">
                   <div class="product-pic-zoom">
-                    <img
-                      class="product-big-img"
-                      src="/market/img/mickey1.jpg"
-                      alt
-                    />
+                    <img th:src="@{${product.ProductImgPath}}" alt="" />
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -52,7 +48,7 @@
                     <div class="quantity">
                       <button
                         class="primary-btn"
-                        th:attr="onclick=|addToCart('${product.id}','${product.productPrice}','${product.productName}')|"
+                        th:attr="onclick=|addToCart('${product.id}','${product.productPrice}','${product.productName}','@{${product.ProductImgPath}}')|"
                         type="button"
                       >
                         Add To Cart
