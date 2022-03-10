@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head lang="en" th:replace="fragments/header :: header"> </head>
 
-<head lang="en" th:replace="fragments/header :: header"> </head>
-
-<body>
-  <div th:replace="fragments/topbar :: topbar"></div>
-  <div class="wrapper">
-    <div th:replace="fragments/navbar :: navbar"></div>
-    <div sec:authorize="isAuthenticated()">
-      <h1>
-        Hai <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-      </h1>
+  <body>
+    <div th:replace="fragments/topbar :: topbar"></div>
+    <div class="wrapper">
+      <div th:replace="fragments/navbar :: navbar"></div>
+      <div sec:authorize="isAuthenticated()" class="container">
+        <h1>Hai <b>[[${#request.userPrincipal.principal.fullName}]]</b></h1>
+        This is home.
+      </div>
     </div>
-  </div>
-  <div lang="en" th:replace="fragments/footer :: footer"> </div>
-</body>
-
+    <div lang="en" th:replace="fragments/footer :: footer"></div>
+  </body>
 </html>

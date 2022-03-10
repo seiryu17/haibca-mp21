@@ -17,14 +17,14 @@ public class ProductCategoryController {
     private ProductCategoryService productCategoryService;
 
     @GetMapping("/category")
-    public String viewCategoryPage(Model model){
+    public String viewCategoryPage(Model model) {
         model.addAttribute("title", "Category Page");
         model.addAttribute("listProductCategory", productCategoryService.getAllProductCategory());
         return "category/index";
     }
 
     @GetMapping("/category/new-category")
-    public String newCategory(Model model){
+    public String newCategory(Model model) {
         ProductCategory productCategory = new ProductCategory();
         model.addAttribute("productCategory", productCategory);
         return "category/new-category";
@@ -32,8 +32,8 @@ public class ProductCategoryController {
 
     @PostMapping("/category/saveCategory")
     public String saveCategory(@ModelAttribute("ProductCategory") ProductCategory category) {
-    	productCategoryService.saveProductCategory(category);
-    	return "redirect:/category";
+        productCategoryService.saveProductCategory(category);
+        return "redirect:/category";
     }
 
     @GetMapping("/category/edit-category/{id}")
@@ -50,9 +50,20 @@ public class ProductCategoryController {
     @GetMapping("/category/delete-category/{id}")
     public String deleteCategory(@PathVariable(value = "id") long id) {
 
-        // call delete employee method 
+        // call delete employee method
         this.productCategoryService.deleteProductCategoryById(id);
         return "redirect:/category";
     }
-    
+
+    @GetMapping("/view-category/{id}")
+    public String viewCategory(@PathVariable(value = "id") long id, Model model) {
+
+        // get product from the service
+        ProductCategory productCategory = productCategoryService.getProductCategoryById(id);
+        // set product as a model attribute to pre-populate the form
+        model.addAttribute("productCategory", productCategory);
+
+        return "category/view-category";
+    }
+
 }
