@@ -591,7 +591,12 @@ ol {
   border: 1px solid #ebebeb;
 }
 
-.inner-header
+.si-pic img {
+  height: 140px;
+  width: 120px;
+}
+
+.inner-header1
   .nav-right
   li.cart-icon
   .cart-hover
@@ -1219,6 +1224,8 @@ ol {
 .product-item .pi-pic {
   overflow: hidden;
   position: relative;
+  background-size: cover;
+  height: 300px;
 }
 
 .product-item .pi-pic img {
@@ -4437,5 +4444,9 @@ ol {
 }
 
 .cart-icon-quick {
+  cursor: pointer;
+}
+
+#remove-item {
   cursor: pointer;
 }

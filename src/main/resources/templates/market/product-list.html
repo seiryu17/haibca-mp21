@@ -13,12 +13,12 @@
               <div th:each="product : ${listProducts}">
                 <div class="product-item product-list">
                   <div class="pi-pic">
-                    <img src="/market/img/products/women-2.jpg" alt />
+                    <img th:src="@{${product.ProductImgPath}}" alt="" />
                     <ul>
                       <li class="w-icon active">
                         <a
                           class="cart-icon-quick"
-                          th:attr="onclick=|addToCart('${product.id}','${product.productPrice}','${product.productName}')|"
+                          th:attr="onclick=|addToCart('${product.id}','${product.productPrice}','${product.productName}','@{${product.ProductImgPath}}')|"
                         >
                           <i class="icon_bag_alt"></i>
                         </a>
