@@ -1,4 +1,8 @@
 @charset "ISO-8859-1";
+html,
+body {
+  height: 100%;
+}
 
 .wrapper {
   display: flex;
@@ -53,6 +57,17 @@ ul.navbar-nav {
   background-color: #004687 !important;
 }
 
+.container-empt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .container {
   margin-top: 5rem;
+}
+
+.container-form form input {
+  min-width: 25rem;
 }
