@@ -11,10 +11,12 @@
 	<groupId>com.example</groupId>
 	<artifactId>haibca-mp21</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>haibca-mp21</name>
 	<description>Hai BCA mini project-21</description>
 	<properties>
 		<java.version>11</java.version>
+		 <start-class>com.example.demo.HaibcaMp21Application</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -69,13 +71,21 @@
 		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+<build>
+<plugins>
+    <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <requiresUnpack>
+            <dependency>
+                <groupId>org.jruby</groupId>
+                <artifactId>jruby-complete</artifactId>
+            </dependency>
+        </requiresUnpack>
+    </configuration>
+</plugin>
+</plugins>
+</build>
 
 </project>
