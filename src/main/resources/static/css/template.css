@@ -52,3 +52,7 @@ nav.navbar,
 ul.navbar-nav {
   background-color: #004687 !important;
 }
+
+.container {
+  margin-top: 5rem;
+}
